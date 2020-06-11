@@ -11,6 +11,11 @@ namespace DataStructures
         static void Main(string[] args)
         {
             var buffer = new Buffer<double>();
+
+            foreach(var item in buffer)
+            {
+
+            }
             
             ProcessInput(buffer);
             ProcessBuffer(buffer);

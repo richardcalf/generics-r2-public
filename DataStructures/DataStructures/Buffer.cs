@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,22 @@ namespace DataStructures
         public virtual void Write(T value)
         {
             _queue.Enqueue(value);
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (var item in _queue)
+            {
+                yield return item;
+            }
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            foreach (var item in _queue)
+            {
+                yield return item;
+            }
         }
     }
 }
