@@ -50,9 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DictionaryTests.cs" />
     <Compile Include="HashSetTests.cs" />
     <Compile Include="LinkedListTests.cs" />
     <Compile Include="QueueTests.cs" />
+    <Compile Include="SortedTests.cs" />
     <Compile Include="StackTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
