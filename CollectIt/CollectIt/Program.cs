@@ -10,19 +10,17 @@ namespace CollectIt
     {
         static void Main(string[] args)
         {
-            var numbers = new List<int>(10);
-            var capacity = -1;
+            Queue<Employee> line = new Queue<Employee>();
+            line.Enqueue(new Employee { Name = "Alex" });
+            line.Enqueue(new Employee { Name = "Dani" });
+            line.Enqueue(new Employee { Name = "Chris" });
 
-            while (true)
+            while(line.Count > 0)
             {
-                if (numbers.Capacity != capacity)
-                {
-                    capacity = numbers.Capacity;
-                    Console.WriteLine(capacity);
-                }
-
-                numbers.Add(1);
+                var employee = line.Dequeue();
+                Console.WriteLine(employee.Name);
             }
+            Console.ReadLine();
         }
     }
 }
