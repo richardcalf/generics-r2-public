@@ -10,10 +10,11 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            var buffer = new CircularBuffer<double>();
-
+            var buffer = new Buffer<double>();
+            
             ProcessInput(buffer);
             ProcessBuffer(buffer);
+            Console.ReadLine();
         }
 
         private static void ProcessBuffer(IBuffer<double> buffer)
