@@ -10,28 +10,13 @@ namespace CollectIt
     {
         static void Main(string[] args)
         {
-            Queue<Employee> queue = new Queue<Employee>();
-            queue.Enqueue(new Employee { Name = "Alex" });
-            queue.Enqueue(new Employee { Name = "Dani" });
-            queue.Enqueue(new Employee { Name = "Chris" });
+            HashSet<Employee> set = new HashSet<Employee>();
+            set.Add(new Employee { Name = "Scott" });
+            set.Add(new Employee { Name = "Scott" });
 
-            while(queue.Count > 0)
+            foreach (var item in set)
             {
-                var employee = queue.Dequeue();
-                Console.WriteLine(employee.Name);
-            }
-
-            Console.WriteLine("----------");
-
-            Stack<Employee> stack = new Stack<Employee>();
-            stack.Push(new Employee { Name = "Alex" });
-            stack.Push(new Employee { Name = "Dani" });
-            stack.Push(new Employee { Name = "Chris" });
-
-            while (stack.Count > 0)
-            {
-                var employee = stack.Pop();
-                Console.WriteLine(employee.Name);
+                Console.WriteLine(item.Name);
             }
             Console.ReadLine();
         }
