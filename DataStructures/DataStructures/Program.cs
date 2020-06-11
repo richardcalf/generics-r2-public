@@ -12,12 +12,13 @@ namespace DataStructures
         {
             var buffer = new Buffer<double>();
 
-            foreach(var item in buffer)
-            {
-
-            }
-            
             ProcessInput(buffer);
+
+            foreach (var item in buffer)
+            {
+                Console.WriteLine(item);
+            }
+
             ProcessBuffer(buffer);
             Console.ReadLine();
         }
