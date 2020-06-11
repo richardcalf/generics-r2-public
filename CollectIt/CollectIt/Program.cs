@@ -10,17 +10,21 @@ namespace CollectIt
     {
         static void Main(string[] args)
         {
-            var employeesByName = new Dictionary<string, Employee>();
+            var employeesByDepartment = new Dictionary<string, List<Employee>>();
 
-            employeesByName.Add("Scott", new Employee { Name = "Scott" });
-            employeesByName.Add("Alex", new Employee { Name = "Alex" });
-            employeesByName.Add("Joy", new Employee { Name = "Joy" });
+            employeesByDepartment.Add("Engineering",
+                new List<Employee>() { new Employee { Name = "Scott" } });
 
-            var scott = employeesByName["Scott"];
+            // ..
 
-            foreach(var item in employeesByName)
+            employeesByDepartment["Engineering"].Add(new Employee { Name = "Alex" });
+
+            foreach(var item in employeesByDepartment)
             {
-                Console.WriteLine($"{item.Key}:{item.Value.Name}");
+                foreach(var employee in item.Value)
+                {
+                    Console.WriteLine(employee.Name);
+                }
             }
 
             Console.ReadLine();
