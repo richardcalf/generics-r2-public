@@ -10,21 +10,19 @@ namespace CollectIt
     {
         static void Main(string[] args)
         {
-            LinkedList<int> list = new LinkedList<int>();
-            list.AddFirst(2);
-            list.AddFirst(3);
+            var employeesByName = new Dictionary<string, Employee>();
 
-            var first = list.First;
+            employeesByName.Add("Scott", new Employee { Name = "Scott" });
+            employeesByName.Add("Alex", new Employee { Name = "Alex" });
+            employeesByName.Add("Joy", new Employee { Name = "Joy" });
 
-            list.AddAfter(first, 5);
-            list.AddBefore(first, 10);
+            var scott = employeesByName["Scott"];
 
-            var node = list.First;
-            while(node != null)
+            foreach(var item in employeesByName)
             {
-                Console.WriteLine(node.Value);
-                node = node.Next;
+                Console.WriteLine($"{item.Key}:{item.Value.Name}");
             }
+
             Console.ReadLine();
         }
     }
