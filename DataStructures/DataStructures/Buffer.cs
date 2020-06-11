@@ -37,12 +37,9 @@ namespace DataStructures
             }
         }
 
-        public IEnumerator GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            foreach (var item in _queue)
-            {
-                yield return item;
-            }
+            return GetEnumerator();
         }
     }
 }
