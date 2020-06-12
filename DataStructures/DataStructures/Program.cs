@@ -10,10 +10,7 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            Action<double> print = delegate (double data)
-            {
-                Console.WriteLine(data);
-            };
+            Action<double> print = d => Console.WriteLine(d);
             print(2.0);//just an example (can remove)
 
             var buffer = new Buffer<double>();
