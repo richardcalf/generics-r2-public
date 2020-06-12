@@ -10,14 +10,14 @@ namespace CollectIt
     {
         static void Main(string[] args)
         {
-            var departments = new SortedDictionary<string, List<Employee>>();
+            var departments = new SortedDictionary<string, HashSet<Employee>>();
 
-            departments.Add("Sales", new List<Employee> {
+            departments.Add("Sales", new HashSet<Employee>(new EmployeeComparer()) {
                 new Employee { Name = "Joy" },
                 new Employee { Name = "Dani" },
                 new Employee { Name = "Dani" }});
 
-            departments.Add("Engineering", new List<Employee> {
+            departments.Add("Engineering", new HashSet<Employee>(new EmployeeComparer()) {
                 new Employee { Name = "Scott" },
                 new Employee { Name = "Alex" },
                 new Employee { Name = "Dani" }});
