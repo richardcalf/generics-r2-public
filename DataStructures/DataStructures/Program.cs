@@ -15,6 +15,8 @@ namespace DataStructures
 
         static void Main(string[] args)
         {
+            Action<double> print = ConsoleWrite;
+
             var buffer = new Buffer<double>();
 
             ProcessInput(buffer);
