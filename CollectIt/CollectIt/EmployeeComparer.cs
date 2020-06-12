@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace CollectIt
 {
-    public class EmployeeComparer : IEqualityComparer<Employee>
+    public class EmployeeComparer : IEqualityComparer<Employee>, 
+                                    IComparer<Employee>
     {
+        public int Compare(Employee x, Employee y)
+        {
+            return string.Compare(x.Name, y.Name);
+        }
+
         public bool Equals(Employee x, Employee y)
         {
             return string.Equals(x.Name, y.Name);
