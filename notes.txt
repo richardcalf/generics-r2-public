@@ -5,3 +5,10 @@ public void Write(object value) //when passing a double in here, it will cause '
 ----
 But the short version of the story is that when we take a value type and doubles, longs, ints, dates, times; those are all value types, when we take a value type and try to interact with it through an object reference, the C# compiler is forced to take the value, allocate space on the heap, and copy that value to the heap. 
 ----
+Constraints
+* Force a type parameter to have certain characteristics
+  * Be a reference type or a value type
+  * Implement an interface
+  * Derive from a base class
+  * Have a default constructor
+  * Be (or derive from) another generic type parameter
