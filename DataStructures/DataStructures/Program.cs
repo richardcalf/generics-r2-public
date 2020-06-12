@@ -8,14 +8,12 @@ namespace DataStructures
 {
     class Program
     {
-        static void ConsoleWrite(double data)
-        {
-            Console.WriteLine(data);
-        }
-
         static void Main(string[] args)
         {
-            Action<double> print = ConsoleWrite;
+            Action<double> print = delegate (double data)
+            {
+                Console.WriteLine(data);
+            };
             print(2.0);//just an example (can remove)
 
             var buffer = new Buffer<double>();
