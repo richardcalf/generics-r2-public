@@ -12,16 +12,21 @@ namespace QueryIt
         public DbSet<Employee> Employees { get; set; }
     }
 
-    public interface IRepository<T> : IDisposable
+    public interface IReadOnlyRepository<out T> : IDisposable
+    {
+        T FindById(int id);
+        IQueryable<T> FindAll();
+    }
+
+    public interface IRepository<T> : IReadOnlyRepository<T>, IDisposable
     {
         void Add(T entity);
         void Delete(T entity);
-        T FindById(int id);
-        IQueryable<T> FindAll();
+
         int Commit();
     }
 
-    public class SqlRepository<T> : IRepository<T> where T: class, IEntity
+    public class SqlRepository<T> : IRepository<T> where T : class, IEntity
     {
         DbContext _context;
         DbSet<T> _set;
