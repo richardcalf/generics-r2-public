@@ -10,20 +10,20 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            var buffer = new Buffer<double>();
+            var buffer = new CircularBuffer<double>(capacity:3);
+            buffer.ItemDiscarded += ItemDiscarded;
 
             ProcessInput(buffer);
-            
-            var asDates = buffer.Map(d => new DateTime(2020, 1, 1).AddDays(d));
-            foreach(var date in asDates)
-            {
-                Console.WriteLine(date);
-            }
 
             buffer.Dump(d => Console.WriteLine(d));
 
             ProcessBuffer(buffer);
             Console.ReadLine();
+        }
+
+        private static void ItemDiscarded(object sender, ItemDiscardedEventArgs<double> e)
+        {
+            Console.WriteLine($"Buffer full. Discarding {e.ItemDiscarded} New item is {e.NewItem}");
         }
 
         private static void ProcessBuffer(IBuffer<double> buffer)

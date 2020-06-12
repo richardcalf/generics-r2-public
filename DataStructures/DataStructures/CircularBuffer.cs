@@ -8,6 +8,8 @@ namespace DataStructures
 {
     public class CircularBuffer<T> : Buffer<T>
     {
+        public event EventHandler<ItemDiscardedEventArgs<T>> ItemDiscarded;
+
         int _capacity;
         public CircularBuffer(int capacity = 10)
         {
@@ -19,7 +21,17 @@ namespace DataStructures
             base.Write(value);
             if (_queue.Count > _capacity)
             {
-                _queue.Dequeue();
+                var discard = _queue.Dequeue();
+                OnItemDiscarded(discard, value);
+            }
+        }
+
+        private void OnItemDiscarded(T discard, T value)
+        {
+            if(ItemDiscarded != null)
+            {
+                var args = new ItemDiscardedEventArgs<T>(discard, value);
+                ItemDiscarded(this, args);
             }
         }
 
