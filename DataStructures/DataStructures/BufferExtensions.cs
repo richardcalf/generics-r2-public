@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace DataStructures
 {
+    public delegate void Printer(object data);
+
     public static class BufferExtensions
     {
-        public static void Dump<T>(this IBuffer<T> buffer)
+        public static void Dump<T>(this IBuffer<T> buffer, Printer print)
         {
             foreach(var item in buffer)
             {
-                Console.WriteLine(item);
+                print(item);
             }
         }
 

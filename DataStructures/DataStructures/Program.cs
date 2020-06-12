@@ -8,18 +8,20 @@ namespace DataStructures
 {
     class Program
     {
+        static void ConsoleWrite(object data)
+        {
+            Console.WriteLine(data);
+        }
+
         static void Main(string[] args)
         {
             var buffer = new Buffer<double>();
 
             ProcessInput(buffer);
-            buffer.Dump();
 
-            var asInts = buffer.AsEnumerableOf<double, int>();
-            foreach (var item in asInts)
-            {
-                Console.WriteLine(item);
-            }
+            Printer consoleOut = new Printer(ConsoleWrite);
+
+            buffer.Dump(consoleOut);
 
             ProcessBuffer(buffer);
             Console.ReadLine();
