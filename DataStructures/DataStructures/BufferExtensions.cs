@@ -20,11 +20,7 @@ namespace DataStructures
         public static IEnumerable<TOutput> Map<T, TOutput>(
             this IBuffer<T> buffer, Converter<T,TOutput> converter)
         {
-            foreach (var item in buffer)
-            {
-                TOutput result = converter(item);
-                yield return result;
-            }
+            return buffer.Select(i => converter(i));
         }
     }
 }
