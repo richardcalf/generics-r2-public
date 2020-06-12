@@ -22,6 +22,7 @@ namespace ReflectIt
             var employee = new Employee();
             var employeeType = typeof(Employee);
             var methodInfo = employeeType.GetMethod("Speak");
+            methodInfo = methodInfo.MakeGenericMethod(typeof(DateTime));
             methodInfo.Invoke(employee, null);
 
             Console.ReadLine();
