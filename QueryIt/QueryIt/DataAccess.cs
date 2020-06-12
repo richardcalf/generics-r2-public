@@ -21,7 +21,7 @@ namespace QueryIt
         int Commit();
     }
 
-    public class SqlRepository<T> : IRepository<T> where T: class
+    public class SqlRepository<T> : IRepository<T> where T: class, IEntity
     {
         DbContext _context;
         DbSet<T> _set;
@@ -33,7 +33,10 @@ namespace QueryIt
 
         public void Add(T entity)
         {
-            _set.Add(entity);
+            if (entity.IsValid())
+            {
+                _set.Add(entity);
+            }
         }
 
         public int Commit()
