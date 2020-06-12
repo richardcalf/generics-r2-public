@@ -13,6 +13,7 @@ namespace DataStructures
             Action<double> print = d => Console.WriteLine(d);
             Func<double, double> square = d => d * d;
             Func<double, double, double> add = (x, y) => x + y;
+            Predicate<double> isLessThanTen = d => d < 10;
 
             var buffer = new Buffer<double>();
 
