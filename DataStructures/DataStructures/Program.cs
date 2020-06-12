@@ -16,14 +16,13 @@ namespace DataStructures
         static void Main(string[] args)
         {
             Action<double> print = ConsoleWrite;
+            print(2.0);//just an example (can remove)
 
             var buffer = new Buffer<double>();
 
             ProcessInput(buffer);
 
-            var consoleOut = new Printer<double>(ConsoleWrite);
-
-            buffer.Dump(consoleOut);
+            buffer.Dump(print);
 
             ProcessBuffer(buffer);
             Console.ReadLine();
