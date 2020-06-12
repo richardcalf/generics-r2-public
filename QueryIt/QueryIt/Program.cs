@@ -17,6 +17,7 @@ namespace QueryIt
                 = new SqlRepository<Employee>(new EmployeeDb()))
             {
                 AddEmployees(employeeRepository);
+                AddManagers(employeeRepository);
                 CountEmployees(employeeRepository);
                 QueryEmployees(employeeRepository);
                 DumpPeople(employeeRepository);
@@ -24,6 +25,12 @@ namespace QueryIt
                 IEnumerable<Person> temp = employeeRepository.FindAll();
             }
             Console.ReadLine();
+        }
+
+        private static void AddManagers(IWriteOnlyRepository<Manager> employeeRepository)
+        {
+            employeeRepository.Add(new Manager { Name = "Alex" });
+            employeeRepository.Commit();
         }
 
         private static void DumpPeople(IReadOnlyRepository<Person> employeeRepository)

@@ -18,12 +18,15 @@ namespace QueryIt
         IQueryable<T> FindAll();
     }
 
-    public interface IRepository<T> : IReadOnlyRepository<T>, IDisposable
+    public interface IWriteOnlyRepository<in T> : IDisposable
     {
         void Add(T entity);
         void Delete(T entity);
-
         int Commit();
+    }
+
+    public interface IRepository<T> : IReadOnlyRepository<T>, IWriteOnlyRepository<T>
+    {
     }
 
     public class SqlRepository<T> : IRepository<T> where T : class, IEntity
