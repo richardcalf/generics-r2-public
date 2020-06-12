@@ -10,10 +10,12 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            Action<double> print = d => Console.WriteLine(d);
+            Action<bool> print = d => Console.WriteLine(d);
             Func<double, double> square = d => d * d;
             Func<double, double, double> add = (x, y) => x + y;
             Predicate<double> isLessThanTen = d => d < 10;
+
+            print(isLessThanTen(square(add(3, 5))));
 
             var buffer = new Buffer<double>();
 
