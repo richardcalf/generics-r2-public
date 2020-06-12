@@ -10,7 +10,7 @@ namespace ReflectIt
     {
         static void Main(string[] args)
         {
-            var employeeList = CreateCollection(typeof(List<Employee>));
+            var employeeList = CreateCollection(typeof(List<>),typeof(Employee));
             Console.Write(employeeList.GetType().Name);
             var genericArguments = employeeList.GetType().GenericTypeArguments;
             foreach(var arg in genericArguments)
@@ -21,9 +21,10 @@ namespace ReflectIt
             Console.ReadLine();
         }
 
-        private static object CreateCollection(Type type)
+        private static object CreateCollection(Type collectionType, Type itemType)
         {
-            return Activator.CreateInstance(type);
+            var closedType = collectionType.MakeGenericType(itemType);
+            return Activator.CreateInstance(closedType);
         }
     }
 }
