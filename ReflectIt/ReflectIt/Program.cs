@@ -18,6 +18,12 @@ namespace ReflectIt
                 Console.Write($"[{arg.Name}]");
             }
             Console.WriteLine();
+
+            var employee = new Employee();
+            var employeeType = typeof(Employee);
+            var methodInfo = employeeType.GetMethod("Speak");
+            methodInfo.Invoke(employee, null);
+
             Console.ReadLine();
         }
 
