@@ -8,7 +8,7 @@ namespace DataStructures
 {
     class Program
     {
-        static void ConsoleWrite(object data)
+        static void ConsoleWrite(double data)
         {
             Console.WriteLine(data);
         }
@@ -19,7 +19,7 @@ namespace DataStructures
 
             ProcessInput(buffer);
 
-            Printer consoleOut = new Printer(ConsoleWrite);
+            var consoleOut = new Printer<double>(ConsoleWrite);
 
             buffer.Dump(consoleOut);
 
