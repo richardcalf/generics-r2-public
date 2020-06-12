@@ -10,18 +10,16 @@ namespace CollectIt
     {
         static void Main(string[] args)
         {
-            var departments = new SortedDictionary<string, SortedSet<Employee>>();
+            var departments = new DepartmentCollection();
 
-            departments.Add("Sales", new SortedSet<Employee>(new EmployeeComparer()) {
-                new Employee { Name = "Joy" },
-                new Employee { Name = "Dani" },
-                new Employee { Name = "Dani" }});
+            departments.Add("Sales", new Employee { Name = "Joy" })
+                       .Add("Sales", new Employee { Name = "Dani" })
+                       .Add("Sales", new Employee { Name = "Dani" });
 
-            departments.Add("Engineering", new SortedSet<Employee>(new EmployeeComparer()) {
-                new Employee { Name = "Scott" },
-                new Employee { Name = "Alex" },
-                new Employee { Name = "Dani" }});
-            
+            departments.Add("Engineering", new Employee { Name = "Scott" })
+                       .Add("Engineering", new Employee { Name = "Alex" })
+                       .Add("Engineering", new Employee { Name = "Dani" });
+
             foreach (var department in departments)
             {
                 Console.WriteLine(department.Key);
@@ -30,7 +28,6 @@ namespace CollectIt
                     Console.WriteLine($"\t{employee.Name}");
                 }
             }
-
             Console.ReadLine();
         }
     }
