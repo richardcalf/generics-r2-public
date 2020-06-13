@@ -10,17 +10,18 @@ namespace Tips
     {
         static void Main(string[] args)
         {
-            var a = new Item();
-            var b = new Item();
-            var c = new Item();
+            var a = new Item<int>();
+            var b = new Item<int>();
+            var c = new Item<string>();
 
-            Console.WriteLine(Item.InstanceCount);
+            Console.WriteLine(Item<int>.InstanceCount);
+            Console.WriteLine(Item<string>.InstanceCount);
 
             Console.ReadLine();
         }
     }
     
-    public class Item
+    public class Item<T>
     {
         public Item()
         {
