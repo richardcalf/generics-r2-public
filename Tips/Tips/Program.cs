@@ -15,7 +15,7 @@ namespace Tips
 
     public static class StringExtensions
     {
-        public static TEnum ParseEnum<TEnum>(this string value)
+        public static TEnum ParseEnum<TEnum>(this string value) where TEnum: System.Enum
         {
             return (TEnum)Enum.Parse(typeof(TEnum), value);
         }
