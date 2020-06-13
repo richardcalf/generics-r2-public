@@ -10,19 +10,23 @@ namespace Tips
     {
         static void Main(string[] args)
         {
-            var list = new List<Item>();
-            list.Add(new Item<int>());
-            list.Add(new Item<double>());
+            var a = new Item();
+            var b = new Item();
+            var c = new Item();
+
+            Console.WriteLine(Item.InstanceCount);
+
+            Console.ReadLine();
         }
     }
-
-    public class Item<T> : Item
-    {
-
-    }
-
+    
     public class Item
     {
+        public Item()
+        {
+            InstanceCount++;
+        }
 
+        public static int InstanceCount;
     }
 }
