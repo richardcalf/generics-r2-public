@@ -15,9 +15,9 @@ namespace Tips
 
     public static class StringExtensions
     {
-        public static Steps ParseEnum(this string str)
+        public static TEnum ParseEnum<TEnum>(this string value)
         {
-            return (Steps)Enum.Parse(typeof(Steps), str);
+            return (TEnum)Enum.Parse(typeof(TEnum), value);
         }
     }
 
@@ -26,17 +26,9 @@ namespace Tips
         static void Main(string[] args)
         {
             var input = "Step1";
-            var value = (Steps)Enum.Parse(typeof(Steps), input);
-            var value2 = input.ParseEnum();
+            var value = input.ParseEnum<Steps>();
 
-            List<string> coll = new List<string>();
-            coll.Add(value.ToString());
-            coll.Add(value2.ToString());
-
-            foreach(var item in coll)
-            {
-                Console.WriteLine(item);
-            }
+            Console.WriteLine(value);
             
             Console.ReadLine();
         }
