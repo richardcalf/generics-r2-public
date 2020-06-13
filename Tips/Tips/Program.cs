@@ -10,22 +10,19 @@ namespace Tips
     {
         static void Main(string[] args)
         {
-            var numbers = new double[] { 1, 2, 3, 4, 5, 6 };
-            var result = SampledAverage(numbers);
-            Console.WriteLine(result);
-            Console.ReadLine();
+            var list = new List<Item>();
+            list.Add(new Item<int>());
+            list.Add(new Item<double>());
         }
+    }
 
-        private static double SampledAverage(double[] numbers)
-        {
-            var count = 0;
-            var sum = 0.0;
-            for (int i = 0; i < numbers.Length; i+=2)
-            {
-                sum += numbers[i];
-                count += 1;
-            }
-            return sum / count;
-        }
+    public class Item<T> : Item
+    {
+
+    }
+
+    public class Item
+    {
+
     }
 }
