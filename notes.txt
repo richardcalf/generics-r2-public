@@ -12,3 +12,6 @@ Constraints
   * Derive from a base class
   * Have a default constructor
   * Be (or derive from) another generic type parameter
+  
+Suggested Courses
+https://app.pluralsight.com/library/courses/csharp-generics/recommended-courses
