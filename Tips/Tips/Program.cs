@@ -20,8 +20,13 @@ namespace Tips
             Console.ReadLine();
         }
     }
-    
-    public class Item<T>
+
+    public class Item<T> : Item
+    {
+
+    }
+
+    public class Item
     {
         public Item()
         {
